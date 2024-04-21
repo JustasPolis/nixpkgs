@@ -2,13 +2,13 @@
 #!nix-shell -i bash -p curl gnused common-updater-scripts jq prefetch-npm-deps
 set -euo pipefail
 
-version=$(curl ${GITHUB_TOKEN:+" -u \":$GITHUB_TOKEN\""} -s https://api.github.com/repos/microsoft/pyright/releases/latest | jq -r '.tag_name | sub("^v"; "")')
+version=$(curl ${GITHUB_TOKEN:+" -u \":$GITHUB_TOKEN\""} -s https://api.github.com/repos/detachhead/basedpyright/releases/latest | jq -r '.tag_name | sub("^v"; "")')
 
-update-source-version pyright "$version"
+update-source-version basedpyright "$version"
 
 root="$(dirname "$(readlink -f "$0")")"
 FILE_PATH="$root/package.nix"
-REPO_URL_PREFIX="https://github.com/microsoft/pyright/raw"
+REPO_URL_PREFIX="https://github.com/detachhead/basedpyright/raw"
 TEMP_DIR=$(mktemp -d)
 
 trap 'rm -rf "$TEMP_DIR"' EXIT
