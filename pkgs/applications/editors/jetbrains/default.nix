@@ -96,7 +96,7 @@ let
 in
 rec {
   # Sorted alphabetically
-  idea-community-bin = buildIdea { pname = "idea-community"; extraBuildInputs = [ stdenv.cc.cc ]; };
+  idea-community-bin = buildIdea { pname = "idea-community"; extraBuildInputs = [ stdenv.cc.cc lldb musl ]; };
 
   plugins = callPackage ./plugins { } // { __attrsFailEvaluation = true; };
 
