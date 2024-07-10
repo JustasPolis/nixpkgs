@@ -22,6 +22,7 @@
 , lttng-ust_2_12
 , xz
 , xorg
+, wayland
 , libGL
 
 , vmopts ? null
